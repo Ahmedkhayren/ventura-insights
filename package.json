@@ -1,0 +1,41 @@
+{
+  "name": "ventura-insights",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "seed": "tsx scripts/seed.ts"
+  },
+  "dependencies": {
+    "@portabletext/react": "latest",
+    "@sanity/image-url": "latest",
+    "@sanity/vision": "^5.31.2",
+    "lucide-react": "latest",
+    "next": "latest",
+    "next-sanity": "^11.6.13",
+    "react": "latest",
+    "react-dom": "latest",
+    "sanity": "^5.14.1",
+    "styled-components": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "tailwindcss": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  },
+  "overrides": {
+    "adm-zip": "^0.6.0",
+    "js-yaml": "^3.15.1",
+    "uuid": "^11.1.1"
+  }
+}

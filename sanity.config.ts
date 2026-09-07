@@ -1,0 +1,28 @@
+"use client";
+
+import { defineConfig } from "sanity";
+import { structureTool } from "sanity/structure";
+import { visionTool } from "@sanity/vision";
+import { apiVersion, dataset, projectId } from "@/lib/sanity/env";
+import { schemaTypes } from "@/sanity/schemaTypes";
+
+export default defineConfig({
+  name: "ventura-insights",
+  title: "Ventura Insights",
+  projectId: projectId || "replace-me",
+  dataset,
+  basePath: "/studio",
+  schema: { types: schemaTypes },
+  plugins: [
+    structureTool({
+      structure: (S) => S.list().title("Content").items([
+        S.documentTypeListItem("article").title("Articles"),
+        S.documentTypeListItem("author").title("Authors"),
+        S.documentTypeListItem("category").title("Categories"),
+        S.divider(),
+        S.listItem().title("Site Settings").child(S.document().schemaType("siteSettings").documentId("siteSettings")),
+      ]),
+    }),
+    visionTool({ defaultApiVersion: apiVersion }),
+  ],
+});
