@@ -10,3 +10,4 @@ out/
 .env.*.local
 !.env.example
 tsconfig.tsbuildinfo
+.env.local.save
