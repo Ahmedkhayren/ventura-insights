@@ -1,8 +1,8 @@
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { ArticleCard } from "@/components/insights/ArticleCard";
-import type { Article } from "@/types/content";
+import type { ArticleSummary } from "@/types/content";
 
-export function LatestInsights({ articles }: { articles: Article[] }) {
+export function LatestInsights({ articles }: { articles: ArticleSummary[] }) {
   return (
     <section className="section latest">
       <div className="shell">

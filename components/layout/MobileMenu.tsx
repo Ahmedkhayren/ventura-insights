@@ -29,8 +29,8 @@ export function MobileMenu() {
         </nav>
         <Link className="button button-light" href="/contact" onClick={() => setOpen(false)}>Get in Touch <span>→</span></Link>
         <div className="menu-socials">
-          <a href={siteConfig.social.x} aria-label="X" target="_blank" rel="noreferrer">X</a>
-          <a href={siteConfig.social.linkedin} aria-label="LinkedIn" target="_blank" rel="noreferrer">in</a>
+          <a href={siteConfig.social.x} aria-label="X" target="_blank" rel="noopener noreferrer">X</a>
+          <a href={siteConfig.social.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
         </div>
       </div>
     </>

@@ -53,7 +53,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <ShareButtons title={article.title} url={canonical} />
           </div>
         </header>
-        <div className="article-hero-image"><Image src={imageUrl(article.coverImage, 1800, 990)} alt={article.coverAlt || article.title} fill priority sizes="(max-width: 1160px) 100vw, 1120px" /></div>
+        <div className="article-hero-image"><Image src={imageUrl(article.coverImage, 1800, 990)} alt={article.coverAlt || article.title} fill preload sizes="(max-width: 1160px) 100vw, 1080px" /></div>
         <PortableTextRenderer value={article.body} />
       </div>
     </article>

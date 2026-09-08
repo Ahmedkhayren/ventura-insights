@@ -33,3 +33,8 @@ export type Article = {
   seoTitle?: string;
   seoDescription?: string;
 };
+
+export type ArticleSummary = Pick<Article, "_id" | "title" | "slug" | "excerpt" | "coverImage" | "coverAlt" | "publishedAt" | "updatedAt"> & {
+  category: Pick<Category, "name" | "slug">;
+  author: Pick<Author, "name" | "image">;
+};

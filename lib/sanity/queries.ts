@@ -1,11 +1,25 @@
 import { defineQuery } from "next-sanity";
 
+const articleSummaryFields = `
+  _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  coverImage{..., "asset": asset->{_ref, url}},
+  "coverAlt": coverImage.alt,
+  publishedAt,
+  "updatedAt": _updatedAt,
+  category->{name, "slug": slug.current},
+  author->{name, image{..., "asset": asset->{_ref, url}}}
+`;
+
 const articleFields = `
   _id,
   title,
   "slug": slug.current,
   excerpt,
   coverImage{..., "asset": asset->{_ref, url}},
+  "coverAlt": coverImage.alt,
   socialImage{..., "asset": asset->{_ref, url}},
   body,
   publishedAt,
@@ -17,9 +31,9 @@ const articleFields = `
 `;
 
 export const articlesQuery = defineQuery(
-  `*[_type == "article" && defined(slug.current) && publishedAt <= now()] | order(publishedAt desc) {${articleFields}}`
+  `*[_type == "article" && defined(slug.current) && publishedAt <= now()] | order(publishedAt desc) {${articleSummaryFields}}`
 );
 
 export const articleBySlugQuery = defineQuery(
-  `*[_type == "article" && slug.current == $slug][0] {${articleFields}}`
+  `*[_type == "article" && defined(slug.current) && slug.current == $slug && publishedAt <= now()][0] {${articleFields}}`
 );

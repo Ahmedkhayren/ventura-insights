@@ -7,8 +7,12 @@ import type { SanityImage } from "@/types/content";
 const components: PortableTextComponents = {
   marks: {
     link: ({ children, value }) => {
-      const external = !value?.href?.startsWith("/");
-      return <a href={value?.href} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{children}</a>;
+      const href = typeof value?.href === "string" ? value.href.trim() : "";
+      const internal = /^\/(?!\/)/.test(href) || href.startsWith("#");
+      const external = /^https?:\/\//i.test(href);
+      const email = /^mailto:/i.test(href);
+      if (!internal && !external && !email) return <>{children}</>;
+      return <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>{children}</a>;
     },
   },
   types: {

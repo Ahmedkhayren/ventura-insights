@@ -13,7 +13,7 @@ export function Hero() {
           <Link className="button" href="/insights">Explore Insights <ArrowRight size={16} /></Link>
         </div>
         <div className="hero-image">
-          <Image src="/images/hero-still-life.png" alt="Green ceramic cup, books, and leafy branches in warm natural light" fill priority sizes="(max-width: 800px) 100vw, 50vw" />
+          <Image src="/images/hero-still-life.png" alt="Green ceramic cup, books, and leafy branches in warm natural light" fill preload sizes="(max-width: 900px) 100vw, 50vw" />
         </div>
       </div>
     </section>

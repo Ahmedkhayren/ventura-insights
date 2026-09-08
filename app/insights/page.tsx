@@ -26,7 +26,7 @@ export default async function InsightsPage({ searchParams }: { searchParams: Pro
         <span className="sort-label">Newest First ↓</span>
       </div>
       <section className="shell insights-list" aria-live="polite">
-        {filtered.length ? filtered.map((article) => <ArticleCard key={article._id} article={article} variant="row" />) : <div className="empty-state"><h2>No insights in this topic yet.</h2><Link className="arrow-link" href="/insights">View all insights →</Link></div>}
+        {filtered.length ? filtered.map((article, index) => <ArticleCard key={article._id} article={article} variant="row" preload={index === 0} />) : <div className="empty-state"><h2>No insights in this topic yet.</h2><Link className="arrow-link" href="/insights">View all insights →</Link></div>}
       </section>
     </>
   );

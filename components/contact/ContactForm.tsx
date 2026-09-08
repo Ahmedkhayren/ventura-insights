@@ -26,11 +26,11 @@ export function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={submit}>
-      <div className="field"><label htmlFor="name">Name</label><input id="name" name="name" autoComplete="name" required /></div>
-      <div className="field"><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
-      <div className="field"><label htmlFor="company">Company</label><input id="company" name="company" autoComplete="organization" /></div>
+      <div className="field"><label htmlFor="name">Name</label><input id="name" name="name" autoComplete="name" required maxLength={100} /></div>
+      <div className="field"><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" required maxLength={254} /></div>
+      <div className="field"><label htmlFor="company">Company</label><input id="company" name="company" autoComplete="organization" maxLength={120} /></div>
       <div className="field"><label htmlFor="subject">Subject</label><select id="subject" name="subject" required defaultValue=""><option value="" disabled>Select a topic</option><option>Communications strategy</option><option>Media relations</option><option>Thought leadership</option><option>Crisis counsel</option><option>Something else</option></select></div>
-      <div className="field full"><label htmlFor="message">Message</label><textarea id="message" name="message" required minLength={20} /></div>
+      <div className="field full"><label htmlFor="message">Message</label><textarea id="message" name="message" required minLength={20} maxLength={5000} /></div>
       <div className="form-footer"><p className="form-note">Fields marked by their required state must be completed.</p><button className="button" disabled={pending}>{pending ? "Sending…" : "Send enquiry →"}</button></div>
       {status && <p className="form-status" role="status">{status}</p>}
     </form>

@@ -1,13 +1,13 @@
 import { cache } from "react";
 import { demoArticles } from "@/lib/demo-content";
-import type { Article } from "@/types/content";
+import type { Article, ArticleSummary } from "@/types/content";
 import { sanityClient } from "./client";
 import { articleBySlugQuery, articlesQuery } from "./queries";
 
-export const getArticles = cache(async (): Promise<Article[]> => {
+export const getArticles = cache(async (): Promise<ArticleSummary[]> => {
   if (!sanityClient) return demoArticles;
   try {
-    return await sanityClient.fetch<Article[]>(articlesQuery, {}, { next: { revalidate: 3600, tags: ["articles"] } });
+    return await sanityClient.fetch<ArticleSummary[]>(articlesQuery, {}, { next: { revalidate: 3600, tags: ["articles"] } });
   } catch (error) {
     console.error("Sanity article fetch failed; rendering demo content.", error);
     return demoArticles;
